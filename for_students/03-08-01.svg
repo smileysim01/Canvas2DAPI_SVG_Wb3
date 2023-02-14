@@ -1,6 +1,18 @@
-<!-- here is a big, empty SVG! make it into something interesting! -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="600px" width="600px">
-    <!-- you can delete this big rectangle - it's just a placeholder -->
-    <rect x="0" y="0" height="600" width="600" fill="#DDD" />
+
+    <g id="reflection">
+        <!-- reflection -->
+        <circle transform="translate(180,150)"  id="head" cx="0" cy="0" r="50" fill="#FFDBAC"/>
+        <polygon points="75,300 100,200, 260,200,280,300" id="body" fill="#FFDBAC" />
+        
+        <g id="mirror">
+            <rect   transform="translate(30,40)"  id="rect1" width="300" height="300" x="0" y="0" stroke="black" stroke-width="5" fill="#ADD8E63F" />
+        </g>
+        
+    </g>
+
+    <use transform="translate(150,20)" stroke="brown" stroke-width="3" xlink:href="#head" />
+    <use transform="translate(150,20)" stroke="brown" stroke-width="3" xlink:href="#body" />
+
 </svg>
 

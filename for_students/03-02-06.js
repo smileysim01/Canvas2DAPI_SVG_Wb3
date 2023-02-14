@@ -14,6 +14,6 @@ trisquare.drawTriSquare(context1);
 const canvas2 = /** @type {HTMLCanvasElement} */ (document.getElementById("canvas2"));
 const context2 = canvas2.getContext('2d');
 // student should change this one line to have values so that the picture matches
-context2.scale(1, 1);
+context2.scale(4, 1);
 trisquare.drawTriSquare(context2);
 

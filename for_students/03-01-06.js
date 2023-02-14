@@ -22,9 +22,11 @@ const button = /** @type {HTMLButtonElement} */ (document.getElementById("button
 function draw(jump) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     if (jump) {
+        context.save();
         context.translate(20, 0);
         context.fillStyle = "blue";
     } else {
+        context.restore();
         context.fillStyle = "red";
     }
     context.beginPath();
