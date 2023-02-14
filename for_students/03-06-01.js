@@ -1,4 +1,10 @@
-//ADVANCE: interaction- the copters stop moving on mouse click. They again start moving on mouse click.
+//ADVANCE: have multiple vehicles
+//ADVANCE: complex paths (at least one 'copter must be a circle)
+//ADVANCE: cool looking (showed to family and friends, they said it looks like rangoli design[an indian style of art])
+//ADVANCE: interaction- the copters stop moving on mouse click. 
+//         They again start moving on mouse click. 
+//         Day changes to night when motion stops and vice-versa.
+//          On mouse enter, copters change the direction of motion. on mouse leave they again move in original directions.
 
 
 // @ts-check
@@ -23,10 +29,13 @@ canvas.onmousedown = function(){
         click = 1;
     }
 };
-
-// canvas.onmouseup = function(){
-//     click = 0;
-// };
+let enter = 0;
+canvas.onmouseenter = function(){
+    enter = 1;
+}
+canvas.onmouseleave = function(){
+    enter = 0;
+}
 
 function drawCopter(x,y, fillColor="#eb5694"){
 
@@ -218,11 +227,17 @@ function animate(timestamp){
     let a;
     if(click){
         a = 0;
+        context.fillStyle = "black";
+        context.fillRect(0,0, canvas.width, canvas.height);
     }
     else{
         a = performance.now()/1500;
+        context.fillStyle = "#6fa8dc";
+        context.fillRect(0,0, canvas.width, canvas.height);
     }
-    
+    if(enter){
+        a *= -1;
+    }
     drawQuadCopterFace(a,200,200);
     drawQuadCopterArms(a,200,200);
 
